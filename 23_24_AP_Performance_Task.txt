@@ -1,0 +1,68 @@
+# Function to add two numbers
+def add(x, y):
+    return x + y
+
+# Function to subtract two numbers
+def subtract(x, y):
+    return x - y
+
+# Function to multiply two numbers
+def multiply(x, y):
+    return x * y
+
+# Function to divide two numbers
+def divide(x, y):
+    if y == 0:
+        return "Error! Division by zero."
+    else:
+        return x / y
+
+# Function to display calculation history
+def display_history(history):
+    print("Calculation History:")
+    for i, calculation in enumerate(history, 1):
+        print(f"{i}. {calculation}")
+# Main calculator function
+def calculator():
+    history = []  # List to store calculation history
+    print("Welcome to the Calculator!")
+    while True:
+        print("\nSelect Operation:")
+        print("1. Addition")
+        print("2. Subtraction")
+        print("3. Multiplication")
+        print("4. Division")
+        print("5. View Calculation History")
+        print("6. Exit")
+        choice = input("Enter your choice (1-6): ")
+        if choice == '6':
+            print("Exiting the Calculator.")
+            break
+        elif choice == '5':
+            display_history(history)
+        elif choice in ('1', '2', '3', '4'):
+            num1 = float(input("Enter the first number: "))
+            num2 = float(input("Enter the second number: "))
+            if choice == '1':
+                result = add(num1, num2)
+                operation = f"{num1} + {num2} = {result}"
+            elif choice == '2':
+                result = subtract(num1, num2)
+                operation = f"{num1} - {num2} = {result}"
+            elif choice == '3':
+                result = multiply(num1, num2)
+                operation = f"{num1} * {num2} = {result}"
+            elif choice == '4':
+                result = divide(num1, num2)
+                operation = f"{num1} / {num2} = {result}"
+            print("Result:", result)
+            history.append(operation)
+        else:
+            print("Invalid input! Please enter a number between 1 and 6.")
+        # Iterating through the calculation history
+    print("\nIterating through Calculation History:")
+    for calculation in history:
+        print(calculation)
+# Call the calculator function to start the program
+if __name__ == "__main__":
+    calculator()
